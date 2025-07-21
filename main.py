@@ -1,6 +1,9 @@
 # Imports necessary functions / libraries
 import matplotlib.pyplot as plt
-import numpy as np
+import time
+
+# Starts an internal timer
+start_time = time.time()
 
 # Defines a function that calculates the collatz sequence and saves the numbers into a list
 def collatz_sequence(n):
@@ -15,11 +18,15 @@ def collatz_sequence(n):
     return sequence
 
 # Asks for input and takes in the variable (as an integer)
-print('Please input a variable')
+print('Please input a natural number')
 initial_num = int(input())
 
 # Calls the function with the input as a variable
 seq = collatz_sequence(initial_num)
+
+# Prints execution time accortding to the internal timer
+print('---Time spent crunching numbers---')
+print("--- %s seconds ---" % (time.time() - start_time))
 
 # Plots the graph
 plt.plot(range(len(seq)), seq, marker = 'o')
@@ -28,6 +35,7 @@ plt.xlabel('X Value')
 plt.ylabel('Y Value')
 plt.grid (True)
 plt.show()
+
 
 
 
